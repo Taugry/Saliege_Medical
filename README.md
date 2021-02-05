@@ -16,7 +16,18 @@ Petit projet de site web pour découvrir le mélange de HTML/CSS avec du C#
  - Compiler avec visual studio
 
 ## Versions du projet
-## Projet M2L V1.0 05/02/2021
-### HTML/CSS/JS/C SHARP
-  - Ajout de la version stable du projet sur git hub
+## Version 1.0
+ - Creation d'une page web avec un formulaire fonctionelle
+
+## Version 1.1
+ - creation de toutes les pages necessaire
+ - elle sont toutes independantes , elle ecrive chacune leur tour dans le ficher
+
+## Version 2.0
+ - liaison de toute les pages avec une session pour stocker les informations
+ - recuperation des info de la session dans la dernierre page et ecrire dans le ficher deplacer dans cette meme page
+
+## Version 2.1
+ - suppression de fonstions JS inutile
+ - Ajout de la version stable du projet sur git hub
  
