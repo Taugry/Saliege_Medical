@@ -11,7 +11,8 @@
 
         string note1 = "notes Supplementaire:  " + Request.Form["notes1"];
 
-        IEnumerable<string> Notes = new List<string>() { Index + Divers + Maladies + Vaccins + "\n\n" + "NOTES\n" + note1 };
+        IEnumerable<string> Notes = new List<string>() { Index + Divers + Maladies + Vaccins 
+            + "\n\n" + "NOTES\n" + note1 };
 
         string path = @"C:\Users\Portable\Desktop\StudentFile.txt";
         System.IO.File.Delete(path);

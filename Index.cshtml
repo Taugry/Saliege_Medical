@@ -12,7 +12,8 @@
         string Medecin = "Medecin traitant : " + Request.Form["MEDECIN"];
         string Familles = "Compléments familles : " + Request.Form["RENSEIGNEMENTS"];
 
-        string Index = "INFORMATION PRINCIPALE\n" + Classe + "\n" + Nom + "\n" + Prenom + "\n" + Date + "\n" + Tel + "\n" + Medecin + "\n" + Familles;
+        string Index = "INFORMATION PRINCIPALE\n" + Classe + "\n" + Nom + "\n" + Prenom + "\n" 
+            + Date + "\n" + Tel + "\n" + Medecin + "\n" + Familles;
         Session["index"] = Index;
 
         Response.Redirect("~/Divers.cshtml");

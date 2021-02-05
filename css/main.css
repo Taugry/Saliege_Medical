@@ -4,11 +4,6 @@
     padding: 0px;
     font-family: Avenir, sans-serif;
 }
-grad{
-    height: 200px;
-    background-color: red; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to bottom right, red, yellow);
-}
 h2{
     font-style: italic; 
     color: darkblue;
