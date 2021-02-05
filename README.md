@@ -12,7 +12,7 @@ Petit projet de site web pour découvrir le mélange de HTML/CSS avec du C#
  - Crée un ficher .txt et y ecrit toutes les informations entrée
  
 ## Installation
- - Clone du depot sur un serveur web
+ - Clone du projet sur un dépot local
  - Compiler avec visual studio
 
 ## Versions du projet
