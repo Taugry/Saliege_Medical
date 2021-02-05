@@ -1,0 +1,91 @@
+﻿@using System.Web;
+@{
+    if (IsPost)
+    {
+        HttpContext context = HttpContext.Current;
+
+        string res1 = "DTP : " + Request.Form["res1"];
+        string res2 = "HépatiteA  : " + Request.Form["res2"];
+        string res3 = "HépatiteB :  " + Request.Form["res3"];
+        string res4 = "BCG : " + Request.Form["res4"];
+        string res5 = "Gardasil :  " + Request.Form["res5"];
+        string res6 = "ROR :  " + Request.Form["res6"];
+        string res7 = "Typhoides :  " + Request.Form["res7"];
+        string note1 = "notes :  " + Request.Form["notes1"];
+        string note2 = "Des rappels à faire cette année ? : " + Request.Form["res8"];
+
+
+        string Vaccins = "\n\n"+"TPVACCINATIONS\n" +res1 + "\n" +res2 + "\n" +res3 + "\n" +res4 + "\n" +res5 + "\n" +
+            res6+ "\n" +res7+ "\n" +note1+ "\n" +note2;
+
+        Session["Vaccins"] = Vaccins;
+
+        Response.Redirect("~/Notes.cshtml");
+
+    }
+
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css\main.css">
+    <script type="text/javascript" src="~/js/main.js"></script>
+
+    <title>site infirmerie</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="~/Index.cshtml">Administratif-Sum</a></li>
+            <li><a href="~/Divers.cshtml">Divers</a></li>
+            <li><a href="~/Maladies.cshtml">Maladies-Allergies</a></li>
+            <li><a href="~/Vaccins.cshtml">TPVaccinations</a></li>
+            <li><a href="~/Notes.cshtml">Notes</a></li>
+        </ul>
+    </nav>
+    <form method="post">
+        <br>
+        <div class="main">
+            <input type="checkbox" id="myCheck1" class="flat" onclick="myFunction(1)" />
+            <label for="res1">DTP</label>
+            <input style="display:none" type="text" id="res1" size="5" name="res1" />
+            <br>
+            <input type="checkbox" id="myCheck2" class="flat" onclick="myFunction(2)" />
+            <label for="res2">HépatiteA</label>
+            <input style="display:none" type="text" id="res2" size="5" name="res2" />
+            <br>
+            <input type="checkbox" id="myCheck3" class="flat" onclick="myFunction(3)" />
+            <label for="res3">HépatiteB</label>
+            <input style="display:none" type="text" id="res3" size="5" name="res3" />
+            <br>
+            <input type="checkbox" id="myCheck4" class="flat" onclick="myFunction(4)" />
+            <label for="res4">BCG</label>
+            <input style="display:none" type="text" id="res4" size="5" name="res4" />
+            <br>
+            <input type="checkbox" id="myCheck5" class="flat" onclick="myFunction(5)" />
+            <label for="res5">Gardasil</label>
+            <input style="display:none" type="text" id="res5" size="5" name="res5" />
+            <br>
+            <input type="checkbox" id="myCheck6" class="flat" onclick="myFunction(6)" />
+            <label for="res6">ROR</label>
+            <input style="display:none" type="text" id="res6" size="5" name="res6" />
+            <br>
+            <input type="checkbox" id="myCheck7" class="flat" onclick="myFunction(7)" />
+            <label for="res7">Typhoide</label>
+            <input style="display:none" type="text" id="res7" size="5" name="res7" />
+            <br>
+            <label for="Notes1">Notes:</label><br>
+            <textarea id="notes1" name="notes1"></textarea>
+        </div>
+        <br><br>
+            <div class="main">
+                <label for="res8">Des rappels à faire cette année ?</label>
+                <input type="checkbox" id="myCheck8" class="flat" onclick="myFunction(8)" />
+                <textarea style="display:none" id="res8" name="res8"></textarea>                
+            </div>
+        <br><br>
+        <input type="submit" value="Submit" class="submit"/>
+    </form>
+</body>
+</html>

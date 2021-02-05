@@ -1,0 +1,67 @@
+﻿@using System.Web;
+@{
+    if (IsPost)
+    {
+        HttpContext context = HttpContext.Current;
+
+        string Classe = "Classe : " + Request.Form["CLASSE"];
+        string Nom = "Nom : " + Request.Form["NOM"];
+        string Prenom = "Prenom :  " + Request.Form["PRENOM"];
+        string Date = "Date Naissance : " + Request.Form["DATE"];
+        string Tel = "Téléphone : " + Request.Form["TEL"];
+        string Medecin = "Medecin traitant : " + Request.Form["MEDECIN"];
+        string Familles = "Compléments familles : " + Request.Form["RENSEIGNEMENTS"];
+
+        string Index = "INFORMATION PRINCIPALE\n" + Classe + "\n" + Nom + "\n" + Prenom + "\n" + Date + "\n" + Tel + "\n" + Medecin + "\n" + Familles;
+        Session["index"] = Index;
+
+        Response.Redirect("~/Divers.cshtml");
+
+    }
+
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css\main.css">
+    <title>site infirmerie</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="~/Index.cshtml">Administratif-Sum</a></li>
+            <li><a href="~/Divers.cshtml">Divers</a></li>
+            <li><a href="~/Maladies.cshtml">Maladies-Allergies</a></li>
+            <li><a href="~/Vaccins.cshtml">TPVaccinations</a></li>
+            <li><a href="~/Notes.cshtml">Notes</a></li>
+        </ul>
+    </nav>
+    <form method="post">
+        <br>
+        <label for="CLASSE">Classe :</label><br>
+        <input type="text" id="CLASSE" name="classe" size="15" />
+        <br><br>
+        <label for="NOM">Nom :</label><br>
+        <input type="text" id="NOM" name="nom">
+        <br><br>
+        <label for="PRENOM">Prenom :</label><br>
+        <input type="text" id="PRENOM" name="prenom">
+        <br><br>
+        <label for="DATE">Date Naissance :</label><br>
+        <input type="date" id="DATE" name="date" />
+        <br><br>
+        <label for="TEL">Téléphone :</label><br>
+        <input type="number" id="TEL" name="tel" />
+        <br><br>
+        <label for="MEDECIN">Medecin Traitant :</label><br>
+        <input type="text" id="MEDECIN" name="medecin" size="50">
+        <br><br>
+        <label for="RENSEIGNEMENTS">Renseignement Complémentaires familles :</label><br>
+        <textarea id="RENSEIGNEMENTS" name="renseignements"></textarea>
+        <br><br>
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+</body>
+</html>

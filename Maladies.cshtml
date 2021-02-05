@@ -1,0 +1,122 @@
+﻿@using System.Web;
+@{
+    if (IsPost)
+    {
+        HttpContext context = HttpContext.Current;
+
+        string res1 = "ROR (Rougeole / oreillons / Rubéole) : " + Request.Form["res1"];
+        string res2 = "Scarlatine : " + Request.Form["res2"];
+        string res3 = "Coqueluche :  " + Request.Form["res3"];
+        string res4 = "Varicelle : " + Request.Form["res4"];
+        string covid = "Covid : " + Request.Form["Covid"];
+        string res5 = "Alimentaire :  " + Request.Form["res5"];
+        string res6 = "Médicamenteuse :  " + Request.Form["res6"];
+        string res7 = "Pollen :  " + Request.Form["res7"];
+        string res8 = "Asthme :  " + Request.Form["res8"];
+        string res9 = "Urticaire :  " + Request.Form["res9"];
+        string res10 = "Acariens :  " + Request.Form["res10"];
+        string res11 = "Autres problèmes :  " + Request.Form["res11"];
+        string note1 = "notes :  " + Request.Form["notes1"];
+        string note2 = "notes :  " + Request.Form["notes2"];
+        string note3 = "notes :  " + Request.Form["notes3"];
+
+        string Maladies = "\n\n"+"MALADIES-ALLERGIES\n" +res1 + "\n" +res2 + "\n" +res3 + "\n" +res4 + "\n" +note1 + "\n" +
+            covid+ "\n" +note2+ "\n" +res5+ "\n" +res6+ "\n" +res7+ "\n" +res8+ "\n" +res9+ "\n" +res10+ "\n" +res11+ "\n" +note3;
+
+        Session["Maladies"] = Maladies;
+
+        Response.Redirect("~/Vaccins.cshtml");
+
+    }
+
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css\main.css">
+    <script type="text/javascript" src="~/js/main.js"></script>
+
+    <title>site infirmerie</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="~/Index.cshtml">Administratif-Sum</a></li>
+            <li><a href="~/Divers.cshtml">Divers</a></li>
+            <li><a href="~/Maladies.cshtml">Maladies-Allergies</a></li>
+            <li><a href="~/Vaccins.cshtml">TPVaccinations</a></li>
+            <li><a href="~/Notes.cshtml">Notes</a></li>
+        </ul>
+    </nav>
+    <form method="post">
+        <br>
+        <div class="main">
+            <h2>Maladies récentes</h2>
+            <input type="checkbox" id="myCheck1" class="flat" onclick="myFunction(1)" />
+            <label for="res1">ROR (Rougeole / oreillons / Rubéole)</label>
+            <input style="display:none" type="text" id="res1" size="5" name="res1" />
+            <br>
+            <input type="checkbox" id="myCheck2" class="flat" onclick="myFunction(2)" />
+            <label for="res2">Scarlatine</label>
+            <input style="display:none" type="text" id="res2" size="5" name="res2" />
+            <br>
+            <input type="checkbox" id="myCheck3" class="flat" onclick="myFunction(3)" />
+            <label for="res3">Coqueluche</label>
+            <input style="display:none" type="text" id="res3" size="5" name="res3" />
+            <br>
+            <input type="checkbox" id="myCheck4" class="flat" onclick="myFunction(4)" />
+            <label for="res4">Varicelle</label>
+            <input style="display:none" type="text" id="res4" size="5" name="res4" />
+            <br>
+            <label for="Notes1">Notes:</label><br>
+            <textarea id="notes1" name="notes1"></textarea>
+        </div>
+        <br><br>
+        <div class="main">
+            <h2>Maladies récentes</h2>
+            <input type="checkbox" id="covid" name="Covid" value="OUI">
+            <label for="covid">Covid</label>
+            <br>
+            <label for="Notes2">Notes:</label><br>
+            <textarea id="notes2" name="notes2"></textarea>
+        </div>
+        <br><br>
+            <div class="main">
+                <h2>Allergies</h2>
+                <input type="checkbox" id="myCheck5" class="flat" onclick="myFunction(5)" />
+                <label for="res5">Alimentaire</label>
+                <input style="display:none" type="text" id="res5" size="5" name="res5" />
+                <br>
+                <input type="checkbox" id="myCheck6" class="flat" onclick="myFunction(6)" />
+                <label for="res6">Médicamenteuse</label>
+                <input style="display:none" type="text" id="res6" size="5" name="res6" />
+                <br>
+                <input type="checkbox" id="myCheck7" class="flat" onclick="myFunction(7)" />
+                <label for="res7">Polen</label>
+                <input style="display:none" type="text" id="res7" size="5" name="res7" />
+                <br>
+                <input type="checkbox" id="myCheck8" class="flat" onclick="myFunction(8)" />
+                <label for="res8">Asthme</label>
+                <input style="display:none" type="text" id="res8" size="5" name="res8" />
+                <br>
+                <input type="checkbox" id="myCheck9" class="flat" onclick="myFunction(9)" />
+                <label for="res9">Urticaire</label>
+                <input style="display:none" type="text" id="res9" size="5" name="res9" />
+                <br>
+                <input type="checkbox" id="myCheck10" class="flat" onclick="myFunction(10)" />
+                <label for="res10">Acariens</label>
+                <input style="display:none" type="text" id="res10" size="5" name="res10" />
+                <br>
+                <input type="checkbox" id="myCheck11" class="flat" onclick="myFunction(11)" />
+                <label for="res11">Autres problèmes</label>
+                <input style="display:none" type="text" id="res11" size="5" name="res11" />
+                <br>
+                <label for="Notes3">Notes:</label><br>
+                <textarea id="notes3" name="notes3"></textarea>
+            </div>
+        <br><br>
+        <input type="submit" value="Submit" class="submit"/>
+    </form>
+</body>
+</html>
