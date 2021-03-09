@@ -28,6 +28,6 @@ Petit projet de site web pour découvrir le mélange de HTML/CSS avec du C#
  - recuperation des info de la session dans la dernierre page et ecrire dans le ficher deplacer dans cette meme page
 
 ## Version 2.1
- - suppression de fonstions JS inutile
+ - suppression de fonctions JS inutile
  - Ajout de la version stable du projet sur git hub
  
